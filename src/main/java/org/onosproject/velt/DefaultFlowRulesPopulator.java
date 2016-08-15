@@ -130,10 +130,13 @@ public class DefaultFlowRulesPopulator {
 
         bridgeID = DeviceId.deviceId(bridgeId);
 
+        int flag = 0;
+
         for (Device device : deviceService.getDevices()) {
             if (device.id().equals(bridgeID)) {
 
                 log.info("Populate flow rule for: {} ", bridgeId);
+                flag = 1;
 
                 installDefaultRule(PortNumber.portNumber(dataInterface), PortNumber.portNumber(vmInterface1),
                                    siteVlan, (short) 0);
@@ -144,6 +147,10 @@ public class DefaultFlowRulesPopulator {
                 installDefaultRule(PortNumber.portNumber(vmInterface1), PortNumber.portNumber(dataInterface),
                                    tempVlan, siteVlan);
             }
+        }
+
+        if (flag == 0) {
+            log.error("Failed to populate flow rules to {}. No such device exists", bridgeId);
         }
     }
 
