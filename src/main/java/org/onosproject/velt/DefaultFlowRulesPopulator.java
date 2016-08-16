@@ -96,7 +96,7 @@ public class DefaultFlowRulesPopulator {
     private long vmInterface1;
     private long vmInterface2;
     private short siteVlan;
-    private short tempVlan;
+    private static short tempVlan = 111;
 
     protected DeviceId bridgeID;
     protected ApplicationId appId;
@@ -202,7 +202,7 @@ public class DefaultFlowRulesPopulator {
         vmInterface1 = config.vmPort1();
         vmInterface2 = config.vmPort2();
         siteVlan = config.siteVlan();
-        tempVlan = config.tempVlan();
+        //tempVlan = config.tempVlan();
 
         populateFlowRules();
 

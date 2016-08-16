@@ -22,7 +22,7 @@ public class VeltConfig extends Config<ApplicationId> {
     private static final String VMPORT1 = "vmPort1";
     private static final String VMPORT2 = "vmPort2";
     private static final String SITEVLAN = "siteVlan";
-    private static final String TEMPVLAN = "tempVlan";
+    //private static final String TEMPVLAN = "tempVlan";
     private static final String DEFAULTPRIORITY = "defaultPriority";
 
     /**
@@ -125,6 +125,7 @@ public class VeltConfig extends Config<ApplicationId> {
      *
      * @return tempVlan, or null
      */
+    /**
     public short tempVlan() {
         JsonNode jsonNode = object.get(TEMPVLAN);
         if (jsonNode == null) {
@@ -138,7 +139,7 @@ public class VeltConfig extends Config<ApplicationId> {
             return 0;
         }
     }
-
+    */
     /**
      * Returns tempVlan.
      *
